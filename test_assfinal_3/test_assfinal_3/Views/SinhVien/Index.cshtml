@@ -1,0 +1,48 @@
+﻿@model IEnumerable<test_assfinal_3.Models.SinhVien>
+
+<p>
+    <a asp-controller="SinhVien" asp-action="Create">Create New</a>
+    <a asp-controller="SinhVien" asp-action="Rollback">Rollback</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ten)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tuoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nganh)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tuoi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nganh)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+               <a asp-controller="SinhVien" asp-action="Details" asp-route-id="@item.ID">Details</a>
+               <a asp-controller="SinhVien" asp-action="Delete" asp-route-id="@item.ID">Deleted</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
